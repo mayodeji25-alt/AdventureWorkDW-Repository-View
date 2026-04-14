@@ -66,3 +66,14 @@ CREATE VIEW dbo.vw_SalesQuotas1 AS
 SELECT TOP (163) *
 FROM dbo.FactSalesQuota
 ORDER BY CalendarQuarter ASC, SalesAmountQuota ASC;
+
+
+-----Query the views:
+SELECT * FROM dbo.vw_Top10Products1;
+SELECT * FROM dbo.vw_Top100CustomersByGeography;
+SELECT * FROM dbo.vw_Top100SingleCustomers;
+SELECT * FROM dbo.vw_Top10FinanceByAmount;
+SELECT * FROM dbo.vw_SalesTerritories;
+SELECT * FROM dbo.vw_ProductCategories;
+SELECT * FROM dbo.vw_SalesQuotas1;
+```
