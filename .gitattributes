@@ -1,3 +1,5 @@
+TO Query the views:
+
 SELECT * FROM dbo.vw_Top10Products1;
 SELECT * FROM dbo.vw_Top100CustomersByGeography;
 SELECT * FROM dbo.vw_Top100SingleCustomers;
