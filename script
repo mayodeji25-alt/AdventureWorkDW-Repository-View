@@ -1,1 +1,68 @@
 
+## Scripts
+
+```sql
+-- Top 10 products by reorder point
+CREATE VIEW dbo.vw_Top10Products1 AS
+SELECT TOP (10)
+    ProductKey,
+    ProductAlternateKey,
+    EnglishProductName,
+    SafetyStockLevel,
+    ReorderPoint
+FROM dbo.DimProduct
+ORDER BY ReorderPoint DESC;
+
+-- Top 100 customers by geography key
+CREATE VIEW dbo.vw_Top100CustomersByGeography AS
+SELECT TOP (100)
+    CustomerKey, 
+    GeographyKey,
+    CustomerAlternateKey, 
+    FirstName, 
+    LastName, 
+    BirthDate, 
+    MaritalStatus
+FROM dbo.DimCustomer
+ORDER BY GeographyKey DESC;
+
+-- Top 100 single marital status customers
+CREATE VIEW dbo.vw_Top100SingleCustomers AS 
+SELECT TOP (100)
+    CustomerKey, 
+    GeographyKey,
+    CustomerAlternateKey, 
+    FirstName, 
+    LastName, 
+    BirthDate, 
+    MaritalStatus
+FROM dbo.DimCustomer
+WHERE MaritalStatus = 'S';
+
+-- Top 10 finance records by amount
+CREATE VIEW dbo.vw_Top10FinanceByAmount AS
+SELECT TOP (10)
+    FinanceKey, 
+    DateKey, 
+    AccountKey, 
+    Amount, 
+    Date 
+FROM dbo.FactFinance
+ORDER BY Amount DESC;
+
+-- All sales territories ordered by SalesTerritoryAlternateKey key
+CREATE VIEW dbo.vw_SalesTerritories AS
+SELECT TOP (10) *
+FROM dbo.DimSalesTerritory
+ORDER BY SalesTerritoryAlternateKey DESC;
+
+-- All product categories
+CREATE VIEW dbo.vw_ProductCategories AS
+SELECT *
+FROM dbo.DimProductCategory;
+
+-- Sales quotas ordered by quarter and amount
+CREATE VIEW dbo.vw_SalesQuotas1 AS
+SELECT TOP (163) *
+FROM dbo.FactSalesQuota
+ORDER BY CalendarQuarter ASC, SalesAmountQuota ASC;
